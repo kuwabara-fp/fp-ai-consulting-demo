@@ -32,18 +32,13 @@ FP相談の申込前に、相談者の悩みを整理するためのスマホUI�
 
 ```js
 const CONFIG = {
-  lineUrl: "https://lin.ee/Wf1NplO",
-  reserveUrl: "https://app.spirinc.com/t/i51z4D0myb7D1Fd-R63M6/as/he_EM0oRj1WhJec_xsWiC/confirm"
+  lineUrl: "https://lin.ee/REPLACE_ME",
+  reserveUrl: "https://example.com/reservation"
 };
 ```
 
 - `lineUrl`：LINE公式アカウントの友だち追加URL
 - `reserveUrl`：Spir、Googleカレンダー予約、または予約ページURL
-
-## 反映済みURL
-
-- LINE公式アカウント：https://lin.ee/Wf1NplO
-- 初回面談予約：https://app.spirinc.com/t/i51z4D0myb7D1Fd-R63M6/as/he_EM0oRj1WhJec_xsWiC/confirm
 
 ## 注意
 
@@ -52,7 +47,16 @@ const CONFIG = {
 
 ## 推奨する次の改善
 
-1. くわばらFPオフィスの既存LPへリンクまたは埋め込み
-2. くわばらFPオフィスの既存LPへリンクまたは埋め込み
-3. Googleフォーム版MVPを追加
-4. フォーム送信時にGASでGmail通知・相談メモ生成
+1. LINE公式URLを本番URLに差し替える
+2. 予約URLを本番URLに差し替える
+3. くわばらFPオフィスの既存LPへリンクまたは埋め込み
+4. Googleフォーム版MVPを追加
+5. フォーム送信時にGASでGmail通知・相談メモ生成
+
+
+## 更新履歴
+
+### v2-scroll-fix
+- スマホモック内の画面を縦スクロール可能に修正
+- 下部ナビゲーションに入力フォームやボタンが隠れないよう余白を追加
+- LINE公式URLとSpir予約URLを本番リンクに設定
