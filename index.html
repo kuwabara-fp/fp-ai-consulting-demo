@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>くわばらFPオフィス｜AI相談準備デモ</title>
+  <meta name="description" content="FP相談の申込前に、家計・教育費・住宅ローン・NISAなどの悩みを整理するスマホUIデモです。" />
+  <meta name="theme-color" content="#0b1f3a" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell" aria-label="くわばらFPオフィス AI相談準備デモ">
+    <section class="hero-copy">
+      <p class="eyebrow">くわばらFPオフィス｜AI相談準備</p>
+      <h1>相談前のモヤモヤを、<br class="pc-only">7ステップで整理します。</h1>
+      <p class="lead">
+        家計・教育費・住宅ローン・NISA・老後資金の不安を、相談しやすい形にまとめるスマホUIデモです。
+      </p>
+      <div class="trust-row" aria-label="安心要素">
+        <span>初回相談無料</span>
+        <span>オンライン対応</span>
+        <span>秘密保持</span>
+        <span>中立な立場</span>
+      </div>
+    </section>
+
+    <section class="phone-wrap">
+      <div class="phone" role="application" aria-label="AI相談準備アプリ">
+        <div class="phone-status" aria-hidden="true">
+          <span>9:41</span>
+          <span class="status-icons">● ● ◒</span>
+        </div>
+
+        <header class="app-header">
+          <button class="icon-button" id="backButton" type="button" aria-label="前の画面へ">‹</button>
+          <div>
+            <p class="app-kicker">AI相談準備</p>
+            <h2 id="screenTitle">トップ</h2>
+          </div>
+          <button class="icon-button" id="resetButton" type="button" aria-label="最初からやり直す">↻</button>
+        </header>
+
+        <div class="progress-area" aria-label="進捗">
+          <div class="progress-meta">
+            <span id="stepText">1 / 7</span>
+            <span id="stepLabel">トップ画面</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+
+        <section class="screen active" data-screen="1" aria-label="トップ画面">
+          <div class="visual-card intro-visual">
+            <div class="soft-orb orb-a"></div>
+            <div class="soft-orb orb-b"></div>
+            <div class="advisor-illustration" aria-hidden="true">
+              <div class="person-head"></div>
+              <div class="person-body"></div>
+              <div class="bubble b1">教育費</div>
+              <div class="bubble b2">住宅ローン</div>
+              <div class="bubble b3">NISA</div>
+            </div>
+          </div>
+          <h3>家計・教育費・住宅ローンの悩みを、相談前に整理します</h3>
+          <p class="screen-copy">
+            AIが不安を分類し、相談内容・必要資料・次の行動を分かりやすくまとめます。
+            初めてのFP相談でも、何を話せばよいか整理しやすくなります。
+          </p>
+          <div class="mini-points">
+            <span>相談前整理</span>
+            <span>必要資料確認</span>
+            <span>LINE相談へ接続</span>
+          </div>
+          <button class="primary-btn next" type="button">はじめる</button>
+          <button class="ghost-btn" type="button" data-jump="6">先にチェックリストを見る</button>
+        </section>
+
+        <section class="screen" data-screen="2" aria-label="相談テーマ選択">
+          <h3>気になるテーマを選んでください</h3>
+          <p class="screen-copy">複数選択できます。まだ曖昧でも問題ありません。</p>
+          <div class="theme-grid" id="themeGrid">
+            <button class="theme-tile" type="button" data-theme="education">
+              <span class="tile-icon">🎓</span><strong>教育費</strong><small>進学費用・準備額</small>
+            </button>
+            <button class="theme-tile" type="button" data-theme="mortgage">
+              <span class="tile-icon">🏠</span><strong>住宅ローン</strong><small>返済・金利・家計</small>
+            </button>
+            <button class="theme-tile" type="button" data-theme="budget">
+              <span class="tile-icon">📘</span><strong>家計管理</strong><small>支出・貯蓄・見直し</small>
+            </button>
+            <button class="theme-tile" type="button" data-theme="nisa">
+              <span class="tile-icon">🌱</span><strong>NISA・資産形成</strong><small>目的整理・無理ない額</small>
+            </button>
+            <button class="theme-tile" type="button" data-theme="insurance">
+              <span class="tile-icon">🛡️</span><strong>保険</strong><small>保障内容・過不足</small>
+            </button>
+            <button class="theme-tile" type="button" data-theme="retirement">
+              <span class="tile-icon">🌅</span><strong>老後資金</strong><small>将来設計・備え</small>
+            </button>
+          </div>
+          <p class="inline-alert" id="themeAlert" hidden>1つ以上選んでください。</p>
+          <button class="primary-btn next validate-themes" type="button">次へ</button>
+        </section>
+
+        <section class="screen" data-screen="3" aria-label="情報入力">
+          <h3>差し支えない範囲で状況を入力してください</h3>
+          <p class="screen-copy">正確な診断ではなく、相談前に論点を整理するための入力です。</p>
+
+          <form class="input-form" id="prepForm">
+            <label>
+              <span>年代</span>
+              <select name="age">
+                <option value="30代">30代</option>
+                <option value="20代">20代</option>
+                <option value="40代">40代</option>
+                <option value="50代">50代</option>
+                <option value="60代以上">60代以上</option>
+              </select>
+            </label>
+            <label>
+              <span>家族構成</span>
+              <select name="family">
+                <option value="夫婦＋子ども">夫婦＋子ども</option>
+                <option value="夫婦のみ">夫婦のみ</option>
+                <option value="単身">単身</option>
+                <option value="その他">その他</option>
+              </select>
+            </label>
+            <label>
+              <span>子どもの人数・年齢</span>
+              <input name="children" type="text" placeholder="例：2人（5歳、2歳）" />
+            </label>
+            <label>
+              <span>住宅ローン</span>
+              <select name="loan">
+                <option value="あり">あり</option>
+                <option value="なし">なし</option>
+                <option value="検討中">検討中</option>
+              </select>
+            </label>
+            <label>
+              <span>毎月の貯蓄額</span>
+              <select name="saving">
+                <option value="未把握">まだ把握できていない</option>
+                <option value="0〜1万円">0〜1万円</option>
+                <option value="1〜3万円">1〜3万円</option>
+                <option value="3〜5万円">3〜5万円</option>
+                <option value="5万円以上">5万円以上</option>
+              </select>
+            </label>
+            <label>
+              <span>いま一番気になること</span>
+              <textarea name="worry" rows="3" placeholder="例：教育費と住宅ローンを払いながら、NISAも続けてよいのか不安です。"></textarea>
+            </label>
+          </form>
+
+          <button class="primary-btn next" type="button">AIに整理してもらう</button>
+        </section>
+
+        <section class="screen" data-screen="4" aria-label="AI整理中">
+          <div class="analyze-card">
+            <div class="analysis-ring">
+              <span id="analysisPercent">0%</span>
+            </div>
+            <h3>悩みを整理しています</h3>
+            <ul class="analysis-list" id="analysisList">
+              <li>相談テーマを分類しています</li>
+              <li>家計の優先順位を確認しています</li>
+              <li>相談前に必要な資料を抽出しています</li>
+            </ul>
+          </div>
+          <button class="primary-btn next hidden-until-ready" id="analysisNext" type="button" disabled>整理結果を見る</button>
+        </section>
+
+        <section class="screen" data-screen="5" aria-label="整理結果の要約">
+          <h3>整理結果の要約</h3>
+          <p class="screen-copy">入力内容から、相談時に話すとよい論点を整理しました。</p>
+
+          <div class="result-card">
+            <p class="result-label">あなたの相談テーマ TOP3</p>
+            <ol id="topThemes"></ol>
+          </div>
+
+          <div class="advice-card">
+            <p class="result-label">AI整理メモ</p>
+            <p id="summaryText"></p>
+          </div>
+
+          <div class="risk-note">
+            <strong>注意</strong>
+            <span>これは相談前の整理であり、特定の商品提案や投資判断ではありません。</span>
+          </div>
+
+          <button class="primary-btn next" type="button">チェックリストへ</button>
+        </section>
+
+        <section class="screen" data-screen="6" aria-label="相談前チェックリスト">
+          <h3>相談前チェックリスト</h3>
+          <p class="screen-copy">すべて揃っていなくても相談できます。分かる範囲で準備してください。</p>
+          <div class="checklist">
+            <label><input type="checkbox" /> 家計の収入・支出が分かるもの</label>
+            <label><input type="checkbox" /> 住宅ローン残高・返済予定</label>
+            <label><input type="checkbox" /> 保険証券・保障内容が分かるもの</label>
+            <label><input type="checkbox" /> 預貯金・投資残高が分かるもの</label>
+            <label><input type="checkbox" /> 相談したいことのメモ</label>
+          </div>
+          <div class="comfort-card">
+            <span class="comfort-icon">🔒</span>
+            <div>
+              <strong>安心してご相談いただくために</strong>
+              <p>ご相談内容は秘密を守り、中立な立場で整理します。</p>
+            </div>
+          </div>
+          <button class="primary-btn next" type="button">相談方法を選ぶ</button>
+        </section>
+
+        <section class="screen" data-screen="7" aria-label="相談方法選択">
+          <h3>次の行動を選んでください</h3>
+          <p class="screen-copy">
+            まずはLINEで質問だけでも構いません。面談希望の方は予約ページへ進めます。
+          </p>
+
+          <div class="cta-stack">
+            <a class="line-btn" id="lineLink" href="#" target="_blank" rel="noopener">
+              <span>LINEで無料相談</span>
+              <small>整理結果をもとに相談する</small>
+            </a>
+            <a class="reserve-btn" id="reserveLink" href="#" target="_blank" rel="noopener">
+              <span>初回面談を予約</span>
+              <small>オンライン相談の日程を選ぶ</small>
+            </a>
+            <button class="ghost-btn" id="saveResult" type="button">結果を保存する</button>
+          </div>
+
+          <div class="final-trust">
+            <div><strong>中立</strong><span>特定の商品を勧めません</span></div>
+            <div><strong>秘密保持</strong><span>相談内容を外部共有しません</span></div>
+            <div><strong>オンライン</strong><span>全国から相談できます</span></div>
+          </div>
+        </section>
+
+        <nav class="bottom-nav" aria-label="アプリ内ナビゲーション">
+          <button type="button" data-jump="1" class="nav-item active">ホーム</button>
+          <button type="button" data-jump="2" class="nav-item">テーマ</button>
+          <button type="button" data-jump="5" class="nav-item">結果</button>
+          <button type="button" data-jump="6" class="nav-item">準備</button>
+        </nav>
+      </div>
+    </section>
+
+    <section class="side-panel">
+      <h2>このデモで見せる価値</h2>
+      <div class="panel-card">
+        <span class="panel-icon">01</span>
+        <div>
+          <h3>相談前の不安を言語化</h3>
+          <p>何を相談すればよいか分からない状態から、相談テーマを整理します。</p>
+        </div>
+      </div>
+      <div class="panel-card">
+        <span class="panel-icon">02</span>
+        <div>
+          <h3>必要資料を明確化</h3>
+          <p>源泉徴収票、ローン残高、保険証券など、面談前の準備を軽くします。</p>
+        </div>
+      </div>
+      <div class="panel-card">
+        <span class="panel-icon">03</span>
+        <div>
+          <h3>LINE・予約へ自然に接続</h3>
+          <p>強引な営業ではなく、相談しやすい導線としてCTAを置いています。</p>
+        </div>
+      </div>
+      <p class="disclaimer">
+        ※このデモは相談前整理のためのプロトタイプです。特定の金融商品・保険・投資判断を推奨するものではありません。
+      </p>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
